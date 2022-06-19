@@ -1,7 +1,8 @@
-package com.entin.testapplication
+package com.entin.testapplication.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.entin.testapplication.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
