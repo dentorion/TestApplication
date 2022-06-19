@@ -53,6 +53,7 @@ dependencies {
 
     implementation(project(mapOf("path" to ":domain")))
     implementation(project(mapOf("path" to ":data")))
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     Dependencies.base.apply {
         implementation(coreKtx)
