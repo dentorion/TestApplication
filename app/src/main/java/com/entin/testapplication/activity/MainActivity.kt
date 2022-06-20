@@ -1,21 +1,16 @@
 package com.entin.testapplication.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.entin.data.model.apiOne.ApiOneResponse
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import com.entin.testapplication.R
 import com.entin.testapplication.databinding.ActivityMainBinding
 import com.entin.testapplication.screens.main.MainScreenViewModel
-import com.google.gson.GsonBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.runBlocking
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -23,11 +18,25 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainScreenViewModel by viewModels()
 
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
         fetchData()
         showSplashScreen(viewModel)
-        bindView()
+        setupActionBar()
+
+        setContentView(binding.root)
+    }
+
+    private fun setupActionBar() {
+        navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.activity_nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
     private fun showSplashScreen(mainScreenViewModel: MainScreenViewModel) {
@@ -42,8 +51,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.downloadUsers()
     }
 
-    private fun bindView() {
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

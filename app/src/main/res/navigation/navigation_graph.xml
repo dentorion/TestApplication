@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainScreenFragment"
         android:name="com.entin.testapplication.screens.main.MainScreenFragment"
-        android:label="fragment_main_screen"
+        android:label="All users list"
         tools:layout="@layout/fragment_main_screen" >
         <action
             android:id="@+id/action_mainScreenFragment_to_detailScreenFragment"
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/detailScreenFragment"
         android:name="com.entin.testapplication.screens.detail.DetailScreenFragment"
-        android:label="fragment_detail_screen"
+        android:label="Detail information"
         tools:layout="@layout/fragment_detail_screen" >
         <argument
             android:name="user"
