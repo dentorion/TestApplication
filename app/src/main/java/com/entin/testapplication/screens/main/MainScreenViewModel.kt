@@ -11,7 +11,6 @@ import com.entin.testapplication.utils.Success
 import com.entin.testapplication.utils.ViewResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
@@ -39,19 +38,23 @@ class MainScreenViewModel @Inject constructor(
     var isSuccessDownload = false
 
     fun downloadUsers() = viewModelScope.launch(dispatcherIO) {
-        repository.downloadDataFromAllApi().collect { result ->
-            result.onSuccess {
-                isSuccessDownload = true
+        if (!isSuccessDownload) {
+            repository.downloadDataFromAllApi().collect { result ->
+                result.onSuccess {
+                    isSuccessDownload = true
+                }
             }
-            _stateSplashScreen.value = false
         }
+        _stateSplashScreen.value = false
     }
 
     fun getSavedUsers() = viewModelScope.launch(dispatcherIO) {
         _stateMainScreen.postValue(Pending())
 
         repository.getLocalSavedData().collect {
-            _stateMainScreen.postValue(Success(data = MainScreenViewState(usersList = it.shuffled())))
+            _stateMainScreen.postValue(
+                Success(data = MainScreenViewState(usersList = it.shuffled()))
+            )
         }
     }
 }
