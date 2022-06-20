@@ -12,5 +12,5 @@ interface Repository {
 
     fun downloadDataFromAllApi(): Flow<Result<Boolean>>
 
-    fun getLocalSavedData(): Flow<Result<List<UserDomain>>>
+    fun getLocalSavedData(): Flow<List<UserDomain>>
 }

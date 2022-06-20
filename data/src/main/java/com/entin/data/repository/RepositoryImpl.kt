@@ -1,12 +1,15 @@
 package com.entin.data.repository
 
+import android.util.Log
 import com.entin.data.local.LocalDataSource
 import com.entin.data.remote.RemoteDataSource
 import com.entin.data.utils.mapToDomainModel
 import com.entin.data.utils.mapToRoomModel
 import com.entin.domain.model.UserDomain
 import com.entin.domain.repository.Repository
+import com.entin.room.model.UserRoom
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
 import javax.inject.Inject
@@ -20,9 +23,11 @@ class RepositoryImpl @Inject constructor(
     private var secondResult = false
 
     override fun downloadDataFromAllApi(): Flow<Result<Boolean>> = flow {
+
         remoteDataSource.downloadDataApiOne().onSuccess { responseOne ->
-            val usersFirstList = responseOne.map { apiOneResponse ->
-                apiOneResponse.mapToRoomModel()
+            val usersFirstList = mutableListOf<UserRoom>()
+            responseOne.map { apiOneResponse ->
+                usersFirstList.add(apiOneResponse.mapToRoomModel())
             }
             localDataSource.saveAllUsers(usersFirstList)
             firstResult = true
@@ -43,13 +48,12 @@ class RepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getLocalSavedData(): Flow<Result<List<UserDomain>>> = flow {
-        emit(
-            Result.success(
-                localDataSource.getAllUsers().map { roomModel ->
-                    roomModel.mapToDomainModel()
-                }
-            )
-        )
+    override fun getLocalSavedData(): Flow<List<UserDomain>> = flow {
+        localDataSource.getAllUsers().collect { userRoomList ->
+            val result = userRoomList.map {
+                it.mapToDomainModel()
+            }
+            emit(result)
+        }
     }
 }
