@@ -34,6 +34,7 @@ abstract class UserModel : EpoxyModelWithHolder<UserHolder>() {
             .into(holder.imageView)
 
         holder.apply {
+            sourceView.text = userDomainModel.source
             nameView.text = userDomainModel.name
             bodyView.setOnClickListener {
                 onClick()
@@ -45,5 +46,6 @@ abstract class UserModel : EpoxyModelWithHolder<UserHolder>() {
 class UserHolder : EpoxyKotlinHolder() {
     val imageView by bind<ImageView>(R.id.epoxy_user_avatar)
     val nameView by bind<TextView>(R.id.epoxy_user_name)
+    val sourceView by bind<TextView>(R.id.epoxy_user_source)
     val bodyView by bind<ConstraintLayout>(R.id.user_body_view)
 }
