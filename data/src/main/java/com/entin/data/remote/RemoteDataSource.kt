@@ -1,6 +1,5 @@
 package com.entin.data.remote
 
-import com.entin.data.model.apiOne.ApiOneResponse
 import com.entin.data.model.apiOne.ApiOneResponseItem
 import com.entin.data.model.apiTwo.ApiTwoResponse
 
