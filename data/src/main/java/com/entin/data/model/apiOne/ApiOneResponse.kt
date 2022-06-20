@@ -5,5 +5,5 @@ package com.entin.data.model.apiOne
  */
 
 data class ApiOneResponse(
-    val usersList: ArrayList<ApiOneResponseItem>,
+    val list: List<ApiOneResponseItem>,
 )
