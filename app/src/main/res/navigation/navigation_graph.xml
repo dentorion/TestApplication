@@ -9,5 +9,18 @@
         android:id="@+id/mainScreenFragment"
         android:name="com.entin.testapplication.screens.main.MainScreenFragment"
         android:label="fragment_main_screen"
-        tools:layout="@layout/fragment_main_screen" />
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_mainScreenFragment_to_detailScreenFragment"
+            app:destination="@id/detailScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailScreenFragment"
+        android:name="com.entin.testapplication.screens.detail.DetailScreenFragment"
+        android:label="fragment_detail_screen"
+        tools:layout="@layout/fragment_detail_screen" >
+        <argument
+            android:name="user"
+            app:argType="com.entin.domain.model.UserDomain" />
+    </fragment>
 </navigation>
