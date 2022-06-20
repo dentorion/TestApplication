@@ -5,6 +5,5 @@ package com.entin.data.model.apiOne
  */
 
 data class ApiOneResponseItem(
-    val id: String,
     val screenname: String
 )
