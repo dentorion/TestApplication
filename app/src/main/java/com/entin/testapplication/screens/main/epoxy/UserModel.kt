@@ -8,7 +8,7 @@ import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.entin.domain.model.UserDomain
 import com.entin.testapplication.R
 import com.uhero.core.epoxy.EpoxyKotlinHolder
@@ -29,7 +29,7 @@ abstract class UserModel : EpoxyModelWithHolder<UserHolder>() {
     override fun bind(holder: UserHolder) {
         Glide.with(holder.imageView)
             .load(userDomainModel.avatarUrl)
-            .transform(CenterCrop())
+            .transform(CircleCrop())
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(holder.imageView)
 
