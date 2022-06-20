@@ -16,7 +16,7 @@ class DetailScreenFragment : Fragment() {
 
     private var _binding: FragmentDetailScreenBinding? = null
     private val binding get() = _binding!!
-    val args: DetailScreenFragmentArgs by navArgs()
+    private val args: DetailScreenFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

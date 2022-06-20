@@ -3,8 +3,6 @@ package com.entin.testapplication.screens.main.epoxy
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.os.bundleOf
-import androidx.navigation.NavController
 import com.airbnb.epoxy.EpoxyAttribute
 import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
@@ -13,8 +11,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.entin.domain.model.UserDomain
 import com.entin.testapplication.R
-import com.entin.testapplication.screens.main.MainScreenFragment
-import com.entin.testapplication.screens.main.MainScreenFragmentDirections
 import com.uhero.core.epoxy.EpoxyKotlinHolder
 
 /**

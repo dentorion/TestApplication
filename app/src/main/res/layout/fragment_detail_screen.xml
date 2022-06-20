@@ -10,7 +10,6 @@
         android:id="@+id/detail_screen_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="@string/hello_blank_fragment"
         android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="@+id/detail_screen_avatar"
         app:layout_constraintStart_toStartOf="@+id/detail_screen_avatar"
@@ -29,10 +28,10 @@
         android:id="@+id/detail_screen_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="TextView"
         android:layout_marginTop="18dp"
         app:layout_constraintEnd_toEndOf="@+id/detail_screen_name"
         app:layout_constraintStart_toStartOf="@+id/detail_screen_name"
-        app:layout_constraintTop_toBottomOf="@+id/detail_screen_name" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_screen_name"
+        tools:text="TextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
