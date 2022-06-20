@@ -9,9 +9,8 @@ import com.entin.room.model.UserRoom.Companion.TABLE_NAME
 @Entity(tableName = TABLE_NAME)
 data class UserRoom(
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @NonNull
-    val id: Int = 0,
     @ColumnInfo(name = "name_user")
     val nameUser: String,
     @ColumnInfo(name = "avatar_url")
