@@ -13,11 +13,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UsersDAO {
-    // GET news
     @Query("SELECT * FROM users")
     fun getAllUsers(): Flow<List<UserRoom>>
 
-    // Add favourite tour
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addUsers(usersList: List<UserRoom>)
 }
