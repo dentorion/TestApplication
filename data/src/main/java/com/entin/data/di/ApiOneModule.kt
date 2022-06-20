@@ -15,6 +15,7 @@ import javax.inject.Singleton
 
 /**
  * Dependency Injection for Api 1
+ * Dailymotion
  */
 
 @Module
@@ -37,5 +38,5 @@ object ApiOneModule {
         retrofit.create(ApiOneService::class.java)
 
     private const val NAME_API = "api1"
-    private const val SERVER_API = "https://google.com"
+    private const val SERVER_API = "https://api.dailymotion.com/"
 }

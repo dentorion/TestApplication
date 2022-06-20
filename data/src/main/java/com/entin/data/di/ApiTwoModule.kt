@@ -15,6 +15,7 @@ import javax.inject.Singleton
 
 /**
  * Dependency Injection for Api 2
+ * Git
  */
 
 @Module
@@ -37,5 +38,5 @@ object ApiTwoModule {
         retrofit.create(ApiTwoService::class.java)
 
     private const val NAME_API = "api2"
-    private const val SERVER_API = "https://google.com"
+    private const val SERVER_API = "https://api.github.com/"
 }
