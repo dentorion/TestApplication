@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Test Application Users</string>
     <string name="error">Error on loading users!</string>
+    <string name="user_avatar">user avatar</string>
 </resources>

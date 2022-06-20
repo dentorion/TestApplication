@@ -2,27 +2,35 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/detail_screen_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.entin.testapplication.screens.detail.DetailScreenFragment">
 
     <TextView
         android:id="@+id/detail_screen_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/detail_screen_avatar"
         app:layout_constraintStart_toStartOf="@+id/detail_screen_avatar"
-        app:layout_constraintTop_toBottomOf="@+id/detail_screen_avatar" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_screen_avatar"
+        tools:text="User Name Or Login" />
 
     <ImageView
         android:id="@+id/detail_screen_avatar"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_margin="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/user_avatar" />
 
     <TextView
         android:id="@+id/detail_screen_source"
@@ -32,6 +40,6 @@
         app:layout_constraintEnd_toEndOf="@+id/detail_screen_name"
         app:layout_constraintStart_toStartOf="@+id/detail_screen_name"
         app:layout_constraintTop_toBottomOf="@+id/detail_screen_name"
-        tools:text="TextView" />
+        tools:text="Source" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
