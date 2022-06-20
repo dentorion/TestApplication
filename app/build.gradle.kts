@@ -53,6 +53,7 @@ dependencies {
 
     implementation(project(mapOf("path" to ":domain")))
     implementation(project(mapOf("path" to ":data")))
+    implementation(project(mapOf("path" to ":room")))
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     Dependencies.base.apply {
@@ -90,6 +91,17 @@ dependencies {
     // Glide
     Dependencies.glide.apply {
         implementation(glide)
+    }
+
+    // Recyclerview
+    Dependencies.recyclerview.apply {
+        implementation(recyclerview)
+    }
+
+    // Epoxy Recycler View
+    Dependencies.epoxy.apply {
+        kapt(epoxyProcessor)
+        implementation(androidEpoxy)
     }
 
     // Splash screen
