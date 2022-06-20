@@ -7,7 +7,7 @@ import com.entin.room.model.UserRoom
 
 /**
  * Mapper
- * CatJson converts into Domain Model to be shown for user.
+ * User models converter.
  */
 
 fun ApiOneResponseItem.mapToRoomModel(): UserRoom =
