@@ -15,7 +15,7 @@ class RemoteDataSourceImpl @Inject constructor(
 
     override suspend fun downloadDataApiOne(): Result<ArrayList<ApiOneResponseItem>> =
         safeApiRequest {
-            apiOneService.getApiDataOne().usersList
+            ArrayList(apiOneService.getApiDataOne().list)
         }
 
     override suspend fun downloadDataApiTwo(): Result<List<ApiTwoResponse>> =
