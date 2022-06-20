@@ -2,7 +2,7 @@ package com.entin.data.local
 
 import com.entin.room.dao.UsersDAO
 import com.entin.room.model.UserRoom
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class LocalDataSourceImpl @Inject constructor(
@@ -13,11 +13,7 @@ class LocalDataSourceImpl @Inject constructor(
         usersDao.addUsers(usersList)
     }
 
-    override suspend fun getAllUsers(): List<UserRoom> {
-        val result = mutableListOf<UserRoom>()
-        usersDao.getAllUsers().collect {
-            result.addAll(it)
-        }
-        return result
-    }
+    override suspend fun getAllUsers(): Flow<List<UserRoom>> =
+        usersDao.getAllUsers()
+
 }
